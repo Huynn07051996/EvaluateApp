@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.evaluateroom.databinding.ItemRecyclerviewDatabaseBinding
 import com.example.evaluateroom.model.EvaluateEntity
 
-class EvaluateEntityAdapter :
+class EvaluateEntityAdapter(val clickListener: (evaluateEntity: EvaluateEntity) -> Unit) :
     ListAdapter<EvaluateEntity, EvaluateEntityAdapter.ViewHolder>(MyDiffUtil) {
 
 
@@ -20,6 +20,9 @@ class EvaluateEntityAdapter :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val evaluateEntity = getItem(position)
+        holder.itemView.setOnClickListener {
+            clickListener(evaluateEntity)
+        }
         holder.bind(evaluateEntity)
     }
 

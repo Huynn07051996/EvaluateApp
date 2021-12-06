@@ -11,4 +11,8 @@ class EvaluateRepository(private val evaluateDao: EvaluateDao) {
     suspend fun addEvaluate(evaluateEntity: EvaluateEntity) {
         evaluateDao.addEvaluate(evaluateEntity)
     }
+
+    suspend fun updateData(evaluateEntity: EvaluateEntity) {
+        evaluateDao.updateData(evaluateEntity)
+    }
 }

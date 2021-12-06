@@ -23,9 +23,15 @@ class EvaluateViewModel(application: Application) : AndroidViewModel(application
         readAllData = repository.readAllData
     }
 
-    fun addEvaluate(evaluateEntity: EvaluateEntity){
+    fun addEvaluate(evaluateEntity: EvaluateEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addEvaluate(evaluateEntity)
+        }
+    }
+
+    fun updateData(evaluateEntity: EvaluateEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateData(evaluateEntity)
         }
     }
 

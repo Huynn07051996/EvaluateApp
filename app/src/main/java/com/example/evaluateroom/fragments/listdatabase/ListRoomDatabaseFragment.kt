@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import com.example.evaluateappfinal.viewmodel.EvaluateViewModel
 import com.example.evaluateroom.adapter.EvaluateEntityAdapter
 import com.example.evaluateroom.databinding.FragmentListRoomDatabaseBinding
@@ -24,7 +26,11 @@ class ListRoomDatabaseFragment : Fragment() {
         //DataBinding
         binding = FragmentListRoomDatabaseBinding.inflate(inflater, container, false)
 
-        adapter = EvaluateEntityAdapter()
+        adapter = EvaluateEntityAdapter {
+            val action: NavDirections =
+                ListRoomDatabaseFragmentDirections.actionListRoomDatabaseFragmentToUpdateFragment(it)
+            findNavController().navigate(action)
+        }
 
         binding.revListDatabase.adapter = adapter
         viewModel.readAllData.observe(viewLifecycleOwner, {

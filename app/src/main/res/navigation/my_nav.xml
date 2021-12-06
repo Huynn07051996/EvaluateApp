@@ -49,5 +49,20 @@
         <action
             android:id="@+id/action_listRoomDatabaseFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listRoomDatabaseFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.evaluateroom.fragments.update.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_listRoomDatabaseFragment"
+            app:destination="@id/listRoomDatabaseFragment" />
+        <argument
+            android:name="evaluateEntity"
+            app:argType="com.example.evaluateroom.model.EvaluateEntity" />
     </fragment>
 </navigation>
