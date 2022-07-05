@@ -33,6 +33,15 @@ class BindingAdapter {
             }
         }
 
+        @BindingAdapter("android:emptyDataDetailFragment")
+        @JvmStatic
+        fun emptyDataDetailFragment(view: View, emptyData: MutableLiveData<Boolean>) {
+            when (emptyData.value) {
+                true -> view.visibility = View.VISIBLE
+                false -> view.visibility = View.INVISIBLE
+            }
+        }
+
         @BindingAdapter("android:loadImage")
         @JvmStatic
         fun loadImage(imageView: ImageView, urlImage: String) {

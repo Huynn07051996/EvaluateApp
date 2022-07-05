@@ -5,16 +5,16 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Evaluate(
-    val id: Int,
-    val title: String,
-    val price: Float,
-    val description: String,
-    val image: String,
-    val rating: Rate
+    val id: Int? = null,
+    val title: String? = null,
+    val price: Float? = null,
+    val description: String? = null,
+    val image: String? = null,
+    val rating: Rate? = null
 ) : Parcelable
 
 @Parcelize
 data class Rate(
-    val rate: Float
+    val rate: Float? = null
 ) : Parcelable
 

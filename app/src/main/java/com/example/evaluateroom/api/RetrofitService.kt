@@ -9,6 +9,9 @@ interface RetrofitService {
     @GET("products")
     fun getDataFormApi(): Call<List<Evaluate>>
 
+    @GET("products")
+    suspend fun getDataFormApi2(): List<Evaluate>
+
     @GET("products/{id}")
     fun getEvaluate(@Path("id")id :Int ): Call<Evaluate>
 }
