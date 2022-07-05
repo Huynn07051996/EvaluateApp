@@ -20,7 +20,7 @@ class DetailActivityViewModel(evaluate: Evaluate) : ViewModel() {
         get() = _evaluate
 
     init {
-        getApiEvaluateById(evaluate.id)
+        evaluate.id?.let { getApiEvaluateById(it) }
     }
 
 
